@@ -12,6 +12,7 @@
 <body>
 
     <?php include "partials/_header.php" ?>
+    <?php include "partials/_dbconnect.php" ?>
 
     <!-- crousel -->
 
@@ -54,82 +55,31 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-4 my-3">
+            <?php
+          $sql='SELECT * FROM `categories`';
+          $result=mysqli_query($conn,$sql);
+
+          while($row=mysqli_fetch_assoc($result)){
+            $desc= $row['category_description'];
+            $cat= $row['category_name'];
+
+            echo '<div class="col-md-4 my-3">
                 <div class="card" style="width: 18rem;">
-                    <img src="images/python.jpg" class="card-img-top" alt="...">
+                    <img src="https://source.unsplash.com/250x150/?'.$cat.',software" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Python</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <h5 class="card-title">'.$cat.'</h5>
+                        <p class="card-text">'.substr($desc,0,80).'...</p>
                         <a href="#" class="btn btn-primary">View threads</a>
                     </div>
                 </div>
-            </div>
+            </div>';
+
+          }
+        ?>
+
+            <!-- use a loop to iterate the categories -->
 
 
-            <div class="col-md-4 my-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/python.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Python</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">View threads</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-4 my-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/python.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Python</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">View threads</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-4 my-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/python.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Python</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">View threads</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-4 my-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/python.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Python</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">View threads</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-4 my-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/python.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Python</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">View threads</a>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
