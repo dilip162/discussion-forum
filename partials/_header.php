@@ -31,17 +31,18 @@ echo '<nav class="navbar navbar-expand-lg bg-light">
         <a class="nav-link" href="contact.php">Contact</a>
       </li>
     </ul>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-sm btn-outline-success me-4" type="submit">Search</button>
-      <button class="btn btn-outline-success danger mx-2" type="submit">Login</button>
-      <button class="btn btn-outline-success danger " type="submit">SignUp</button>
-    </form>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-sm btn-outline-success me-4" type="submit">Search</button>
+        </form>
+
+        <button class="btn btn-outline-success danger mx-2" type="submit" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        <button class="btn btn-outline-success danger " type="submit" data-bs-toggle="modal" data-bs-target="#signupModal">SignUp</button>
   </div>
 </div>
 </nav>';
 
-include "partials/_loginModal.php";
-
+include 'partials/_loginModal.php';
+include 'partials/_signupModal.php';
 
 ?>
